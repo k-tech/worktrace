@@ -11,6 +11,7 @@ export type WorkTraceLog = {
   inProgress: string;
   blockers: string;
   nextPlan: string;
+  markdownContent?: string;
   createdAt: string;
   updatedAt?: string;
   authorId: string;
@@ -70,6 +71,7 @@ export function filterLogsByQuery(logs: WorkTraceLog[], query: string) {
       log.inProgress,
       log.blockers,
       log.nextPlan,
+      log.markdownContent ?? '',
       log.authorName,
       log.authorEmail,
     ].some((value) => value.toLocaleLowerCase().includes(normalizedQuery)),

@@ -11,7 +11,6 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
     const log = database.getWorkLog(id);
     const attachment = database.getWorkLogAttachment(id, attachmentId);
     if (!log || !attachment) return Response.json({ message: 'Attachment was not found' }, { status: 404 });
-    if (log.authorId !== user.id && user.role !== 'ADMIN') return Response.json({ message: 'Not allowed' }, { status: 403 });
     const image = await readImageAttachment(attachment.storageKey);
     return new Response(image, { headers: { 'Content-Type': attachment.mimeType, 'Content-Length': String(image.length), 'Cache-Control': 'private, no-store', 'Content-Disposition': `inline; filename="${encodeURIComponent(attachment.filename)}"` } });
   } catch {

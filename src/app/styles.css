@@ -139,3 +139,87 @@ html,body { background:#f4f7f8; }
 .stitch-console .wt-source,.stitch-console .wt-status { color:#0b6f82; background:#dff1ed; }
 .stitch-console .wt-key-actions button,.stitch-console .wt-row-actions .wt-secondary-button { color:#0b6f82; border-color:#b8ded7; }
 .stitch-console .stitch-sidebar > a.stitch-sidebar-brand { color:#0b6f82; }
+
+/* Markdown work log editor and saved content. */
+.wt-markdown-form { width:100%; }
+.wt-markdown-meta { display:flex; align-items:flex-end; gap:24px; margin-bottom:20px; }
+.wt-markdown-meta > label { width:200px; flex:none; }
+.wt-markdown-meta p { margin:0 0 2px; color:#596677; font-size:13px; }
+.wt-markdown-meta code { padding:2px 4px; background:#eef4f3; }
+.wt-markdown-editor { border:1px solid #cad8d5; background:#fff; }
+.wt-markdown-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:5px; padding:9px; border-bottom:1px solid #dbe6e3; background:#f6faf9; }
+.wt-markdown-toolbar button { min-height:34px; padding:5px 9px; border:1px solid transparent; border-radius:4px; color:#2e4650; background:transparent; cursor:pointer; font:inherit; font-size:13px; }
+.wt-markdown-toolbar button:hover,.wt-markdown-toolbar button:focus-visible { border-color:#a8d6cc; background:#e5f3ef; }
+.wt-markdown-toolbar-divider { width:1px; height:23px; margin:0 4px; background:#cad8d5; }
+.wt-markdown-toolbar button:disabled { opacity:.5; cursor:default; }
+.wt-markdown-writing { min-width:0; padding:18px; }
+.wt-markdown-over-limit { color:#ba1a1a; font-weight:700; }
+.wt-markdown-paste-error { padding:10px 14px; border-top:1px solid #f2d4d4; background:#fff7f7; }
+.wt-markdown-editor-help { display:flex; justify-content:space-between; gap:12px; padding:9px 14px; border-top:1px solid #dbe6e3; color:#61717a; font-size:12px; }
+.wt-rich-markdown { min-width:0; overflow-wrap:anywhere; color:#26333a; font-size:15px; line-height:1.75; }
+.wt-rich-markdown > :first-child { margin-top:0; }
+.wt-rich-markdown > :last-child { margin-bottom:0; }
+.wt-rich-markdown h1,.wt-main .wt-rich-markdown h1 { margin:24px 0 12px; font-size:28px; line-height:1.3; letter-spacing:normal; color:#172930; }
+.wt-rich-markdown h2 { margin:22px 0 10px; font-size:22px; line-height:1.35; }
+.wt-rich-markdown h3 { margin:19px 0 8px; font-size:18px; line-height:1.4; }
+.wt-rich-markdown h4,.wt-rich-markdown h5,.wt-rich-markdown h6 { margin:16px 0 7px; font-size:15px; }
+.wt-rich-markdown p { margin:10px 0; color:inherit; }
+.wt-rich-markdown ul,.wt-rich-markdown ol { margin:10px 0; padding-left:25px; }
+.wt-rich-markdown li { margin:3px 0; }
+.wt-rich-markdown li > p { margin:3px 0; }
+.wt-rich-markdown ul.contains-task-list { list-style:none; padding-left:6px; }
+.wt-rich-markdown input[type='checkbox'] { margin-right:8px; accent-color:#0d7581; }
+.wt-rich-markdown blockquote { margin:14px 0; padding:2px 14px; border-left:4px solid #9accc2; color:#4c6169; background:#f3faf8; }
+.wt-rich-markdown pre { max-width:100%; overflow:auto; margin:14px 0; padding:14px; border-radius:5px; color:#e8f3f0; background:#1b3035; font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; }
+.wt-rich-markdown :not(pre) > code { padding:2px 5px; border-radius:3px; background:#edf3f1; font:13px ui-monospace,SFMono-Regular,Consolas,monospace; }
+.wt-rich-markdown a { color:#0b6f82; text-decoration:underline; }
+.wt-rich-markdown img { max-width:100%; height:auto; }
+.wt-rich-markdown table { display:block; max-width:100%; overflow:auto; border-collapse:collapse; margin:14px 0; }
+.wt-rich-markdown th,.wt-rich-markdown td { border:1px solid #c9d8d5; padding:6px 10px; text-align:left; }
+.wt-rich-markdown th { background:#edf6f3; }
+.wt-rich-markdown hr { border:0; border-top:1px solid #d4e2de; margin:20px 0; }
+.wt-log-detail section .wt-rich-markdown p { color:inherit; }
+.wt-log-detail section .wt-rich-markdown h3 { margin:19px 0 8px; font-size:18px; }
+@media (max-width:600px) { .wt-markdown-meta { display:block; }.wt-markdown-meta > label { width:100%; }.wt-markdown-meta p { margin-top:10px; }.wt-markdown-editor-help { flex-direction:column; } }
+
+/* Live Markdown editing uses the Worktrace palette and reveals syntax on the active line. */
+.wt-markdown-form { padding:0; border:0; background:transparent; }
+.wt-markdown-meta { padding:16px 18px; border:1px solid #d8e3e0; border-radius:10px; background:#fff; }
+.wt-markdown-editor { --foreground:196 27% 16%; --md-heading:196 27% 16%; --md-bold:196 27% 16%; --md-italic:196 27% 16%; --md-link:188 82% 28%; --primary:188 82% 28%; --muted:168 28% 94%; --muted-foreground:199 11% 42%; --background:0 0% 100%; --border:171 24% 84%; border-color:#c9dcd7; color:#24353b; background:#fff; box-shadow:0 14px 34px rgba(25,82,79,.09); }
+.wt-markdown-toolbar { gap:8px; min-height:52px; padding:8px 16px; border-bottom:1px solid #dce8e5; background:#f8fbfa; }
+.wt-markdown-toolbar-label { margin-right:4px; color:#71848a; font-size:11px; font-weight:700; letter-spacing:.12em; }
+.wt-markdown-toolbar-group { display:inline-flex; align-items:center; flex-wrap:wrap; gap:3px; }
+.wt-markdown-toolbar button { color:#3b5961; }
+.wt-markdown-toolbar button:hover,.wt-markdown-toolbar button:focus-visible { border-color:#a4d1c8; color:#0b6976; background:#e7f4f0; }
+.wt-markdown-toolbar button:active { color:#084d59; background:#d4ebe5; }
+.wt-markdown-toolbar-divider { background:#c8d9d5; }
+.wt-markdown-writing { min-height:550px; padding:24px 18px; background:#fff; }
+.wt-markdown-codemirror { position:relative; width:100%; }
+.wt-markdown-codemirror .cm-editor { min-height:550px; color:#263a40; background:transparent; font-size:16px; }
+.wt-markdown-codemirror .cm-editor.cm-focused { outline:none; }
+.wt-markdown-codemirror .cm-scroller { overflow-x:hidden; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif; }
+.wt-markdown-codemirror .cm-content { min-height:540px; padding:14px 0 60px; caret-color:#0d7581; }
+.wt-markdown-codemirror .cm-line { padding:0 8px; line-height:1.8; }
+.wt-markdown-codemirror .cm-gutters { border-right:0; color:#7f9999; background:transparent; }
+.wt-markdown-codemirror .cm-foldGutter { width:26px; }
+.wt-markdown-codemirror .cm-gutterElement { display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.wt-cm-fold-marker { display:inline-grid; place-items:center; width:19px; height:19px; border-radius:5px; color:#6f8b8d; font-size:17px; line-height:1; opacity:0; transition:opacity .12s ease; }
+.wt-markdown-codemirror .cm-gutterElement.wt-cm-fold-hovered .wt-cm-fold-marker { opacity:1; }
+.wt-markdown-codemirror .cm-gutterElement.wt-cm-fold-hovered:hover .wt-cm-fold-marker { color:#0d7581; background:#e4f2ee; }
+.wt-markdown-codemirror .cm-foldPlaceholder { margin:0 5px; padding:1px 6px; border:1px solid #b9d7d1; border-radius:5px; color:#0d7581; background:#eaf6f2; }
+.wt-markdown-codemirror .cm-activeLine,.wt-markdown-codemirror .cm-activeLineGutter { background:#f2faf7; }
+.wt-markdown-codemirror .cm-formatting-block-visible,.wt-markdown-codemirror .cm-formatting-inline-visible { color:#67828a; }
+.wt-markdown-codemirror:not(:focus-within) .cm-formatting-block-visible { font-size:.01em; opacity:0; }
+.wt-markdown-codemirror:not(:focus-within) .cm-formatting-inline-visible { max-width:0; margin:0; opacity:0; pointer-events:none; }
+.wt-markdown-codemirror .cm-header-1 { color:#1a343b; }
+.wt-markdown-codemirror .cm-header-2 { color:#25464d; }
+.wt-markdown-codemirror .cm-code { color:#0b6571; background:#ebf4f1; }
+.wt-markdown-codemirror .cm-image-widget img { max-height:460px; border:1px solid #d4e4df; border-radius:7px; object-fit:contain; }
+.wt-markdown-placeholder { position:absolute; z-index:1; top:30px; left:36px; color:#95a8aa; pointer-events:none; }
+.wt-cm-list-marker { display:inline-block; min-width:19px; margin-right:2px; color:#0d7581; text-align:center; font-weight:650; }
+.wt-form .wt-markdown-codemirror input.wt-cm-task-checkbox { display:inline-block; width:16px; min-width:16px; max-width:16px; height:16px; padding:0; margin:0 7px 0 0; vertical-align:middle; accent-color:#0d7581; cursor:pointer; }
+.wt-markdown-editor-help { align-items:center; border-top-color:#dce8e5; color:#6b7e84; background:#f8fbfa; font-size:11px; }
+.wt-markdown-editor-help strong { color:#0d7581; }
+.wt-markdown-editor .wt-markdown-over-limit { color:#ba1a1a; }
+.wt-markdown-paste-error { border-top-color:#f2d4d4; color:#ba1a1a; background:#fff7f7; }
+@media (max-width:700px) { .wt-markdown-toolbar { padding:8px 10px; }.wt-markdown-toolbar-label,.wt-markdown-toolbar-divider { display:none; }.wt-markdown-writing { min-height:420px; padding:14px 10px; }.wt-markdown-codemirror .cm-editor { min-height:420px; }.wt-markdown-codemirror .cm-content { min-height:400px; }.wt-markdown-placeholder { left:34px; } }

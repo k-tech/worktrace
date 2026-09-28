@@ -5,7 +5,10 @@ import { createDatabase } from '@/lib/db';
 const allowedDomain = 'feedmob.com';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers: [Google],
+  providers: [Google({
+    clientId: process.env.AUTH_GOOGLE_ID || process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.AUTH_GOOGLE_SECRET || process.env.GOOGLE_CLIENT_SECRET,
+  })],
   callbacks: {
     async signIn({ profile }) {
       const email = profile?.email?.toLowerCase();

@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
@@ -34,10 +34,25 @@ export async function saveImageAttachments(files: File[]) {
     return { ...validated, bytes, size: file.size };
   }));
   await mkdir(uploadRoot, { recursive: true });
-  return Promise.all(prepared.map(async (file) => {
-    const storageKey = `${crypto.randomUUID()}.${file.extension}`;
-    await writeFile(path.join(uploadRoot, storageKey), file.bytes, { flag: 'wx' });
-    return { filename: file.filename, storageKey, mimeType: file.mimeType, size: file.size };
+  const stored: { filename: string; storageKey: string; mimeType: string; size: number }[] = [];
+  try {
+    for (const file of prepared) {
+      const storageKey = `${crypto.randomUUID()}.${file.extension}`;
+      await writeFile(path.join(uploadRoot, storageKey), file.bytes, { flag: 'wx' });
+      stored.push({ filename: file.filename, storageKey, mimeType: file.mimeType, size: file.size });
+    }
+    return stored;
+  } catch (error) {
+    await removeImageAttachments(stored.map((file) => file.storageKey));
+    throw error;
+  }
+}
+
+export async function removeImageAttachments(storageKeys: string[]) {
+  await Promise.all(storageKeys.map(async (storageKey) => {
+    if (!/^[0-9a-f-]{36}\.(jpg|png|webp|gif)$/i.test(storageKey)) return;
+    try { await unlink(path.join(uploadRoot, storageKey)); }
+    catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
   }));
 }
 
